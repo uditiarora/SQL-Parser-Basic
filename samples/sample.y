@@ -27,12 +27,7 @@ void yyerror(const char* s);
 
 %start calculation
 
-%{
 
-    #include <stdio.h>
-    #include <stdlib.h>
-
-%}
 
 
 %%

@@ -11,6 +11,12 @@
 [0-9]+\.[0-9]+ 	{yylval.fval = atof(yytext); return T_FLOAT;}
 [0-9]+		{yylval.ival = atoi(yytext); return T_INT;}
 \n		{return T_NEWLINE;}
+"*" 		{return T_STAR;}
+","		{return T_COMMA;}
+">=" 		{return T_GREATER_EQUAL;}
+"<="		{return T_SMALLER_EQUAL;}
+">"		{return T_GREATER;}
+"<" 		{return T_SMALLER;}		
 (S|s)(E|e)(L|l)(E|e)(C|c)(T|t) {return T_SELECT;}
 (C|c)(R|r)(E|e)(A|a)(T|t)(E|e) {return T_CREATE;}
 (T|t)(A|a)(B|b)(L|l)(E|e) {return T_TABLE;}
@@ -29,4 +35,7 @@
 (S|s)(E|e)(T|t) {return T_SET;}
 "exit"		{return T_QUIT;}
 "quit"		{return T_QUIT;}
+[a-zA-Z_][a-zA-Z0-9]* {strcpy(yylval.sval, yytext);  return T_STRING;}
+[\"(\\.|[^"\\])*\"] {return T_PATTERN;}
+[a-zA-Z_0-9][a-zA-Z0-9]* {return T_CONSTANT;}
 

@@ -16,7 +16,22 @@
 ">=" 		{return T_GREATER_EQUAL;}
 "<="		{return T_SMALLER_EQUAL;}
 ">"		{return T_GREATER;}
-"<" 		{return T_SMALLER;}		
+"<" 		{return T_SMALLER;}
+"bit"		{return T_DATATYPE;}	
+"int" 		{return T_DATATYPE;}
+"decimal"	{return T_DATATYPE;}
+"numeric" 	{return T_DATATYPE;}
+"float"		{return T_DATATYPE;}
+"real" 		{return T_DATATYPE;}
+"DATE"		{return T_DATATYPE;}
+"TIME"		{return T_DATATYPE;}
+"DATETIME"	{return T_DATATYPE;}
+"TIMESTAMP" 	{return T_DATATYPE;}
+"YEAR"		{return T_DATATYPE;}
+"CHAR"		{return T_DATATYPE;}
+"VARCHAR" 	{return T_DATATYPE;}
+"TEXT"		{return T_DATATYPE;}
+
 (S|s)(E|e)(L|l)(E|e)(C|c)(T|t) {return T_SELECT;}
 (C|c)(R|r)(E|e)(A|a)(T|t)(E|e) {return T_CREATE;}
 (T|t)(A|a)(B|b)(L|l)(E|e) {return T_TABLE;}
@@ -36,6 +51,6 @@
 "exit"		{return T_QUIT;}
 "quit"		{return T_QUIT;}
 [a-zA-Z_][a-zA-Z0-9]* {strcpy(yylval.sval, yytext);  return T_STRING;}
-[\"(\\.|[^"\\])*\"] {return T_PATTERN;}
+\"(\\.|[^"\\])*\"  	{return T_PATTERN;}
 [a-zA-Z_0-9][a-zA-Z0-9]* {return T_CONSTANT;}
 

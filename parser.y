@@ -15,7 +15,7 @@ extern FILE* yyin
 %token<ival> T_INT
 %token<fval> T_FLOAT
 %token<sval> T_STRING
-%token T_SELECT T_CREATE T_TABLE T_INSERT T_INTO T_UPDATE T_DELETE T_DROP T_FROM T_WHERE T_SET
+%token T_SELECT T_CREATE T_TABLE T_INSERT T_INTO T_UPDATE T_DELETE T_DROP T_FROM T_WHERE T_SET T_VALUES T_DATATYPE
 %token T_AND T_OR T_EQUAL T_LIKE T_STAR T_COMMA T_CONSTANT T_PATTERN T_GREATER T_SMALLER T_GREATER_EQUAL T_SMALLER_EQUAL
 
 %start query
@@ -66,8 +66,8 @@ condition: condition T_AND condition
 create: T_CREATE T_TABLE T_STRING create_att
 ;
 
-create_att: T_STRING datatype
-	| T_STRING datatype T_COMMA create_att
+create_att: T_STRING T_DATATYPE
+	| T_STRING T_DATATYPE T_COMMA create_att
 ;
 
 insert: T_INSERT T_INTO T_STRING insert_att

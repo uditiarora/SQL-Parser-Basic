@@ -107,6 +107,7 @@ command:
 		$$->child=$1;
 		
 	}
+	| expr
 	;
 
 create:

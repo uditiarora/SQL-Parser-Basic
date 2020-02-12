@@ -20,7 +20,7 @@ int line_no = 1;
 "UPDATE"|"update"							{return UPDATE;}
 (D|d)(E|e)(L|l)(E|e)(T|t)(E|e)						{return DELETE;}
 (" ")(F|f)(R|r)(O|o)(M|m)						{return FROM;}
-" SET "|" set "						{return SET;}
+"SET"|"set"						{return SET;}
 (" ")(W|w)(H|h)(E|e)(R|r)(E|e) 						{return WHERE;}
 (" ")(P|p)(R|r)(I|i)(M|m)(A|a)(R|r)(Y|y)(" ")(K|k)(E|e)(Y|y)		{return PRIMKEY;}
 (" ")(U|u)(N|n)(I|i)(Q|q)(U|u)(E|e)					{return UNIQUE;}

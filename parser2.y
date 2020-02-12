@@ -211,7 +211,7 @@ insert_values:
 	;
 
 update: 
-	UPDATE CNAME SET expr update_where
+	UPDATE CNAME update_where
 	{
 		$$=createnode("update");
 		$1=createnode("CNAME");
@@ -219,8 +219,8 @@ update:
 		$$->child=$1;
 		$1->sibling=$2;
 		$2->sibling=$3;
-		$3->sibling=$4;
-		$4->sibling=$5;
+		//$3->sibling=$4;
+		//$4->sibling=$5;
 		
 	}
 	;
